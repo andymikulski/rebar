@@ -56,16 +56,15 @@ A compiled string is returned with which you can manipulate as you see fit.
         })
       )
     );
+```
+Now `modalHTML` contains a string representing the HTML markup of all the stuff you just bunched together. Handling it from there is up to you.
 
-  // Now, you can handle your chunk of HTML however you see fit!
-
-  // ez mode jQuery example:
-  $(document.body).append(modalHTML);
+For easy mode, you can use jQuery: `$(document.body).append(modalHTML);`
 
 
-  // We can add a bit of dynamics to our DOM creation,
-  // via IIFEs to return Rebar components!
+We don't have to write everything out by hand, either. We can use IIFE's and loops to return other Rebars, to make things a bit more dynamic.
 
+```
   var itemControls = {
     'Save': 'btnSave',
     'Undo': 'btnUndo'
@@ -74,7 +73,7 @@ A compiled string is returned with which you can manipulate as you see fit.
   var controlPanelHTML =
     Rebar.div(
       Rebar.ul(
-        // Use an IIFE to return a string or Rebar command
+        // Use an IIFE to return a Rebar string
         (function() {
           var list = '';
 
@@ -94,12 +93,33 @@ A compiled string is returned with which you can manipulate as you see fit.
         Rebar.li('This is the last list element, and is hard-coded!');
       )
     );
-
-  // Is rebar missing an element you want to build with?
-  Rebar.register('yourElement');
-  Rebar.yourElement('woo!');
-  // -> <yourElement>woo!</yourElement>
 ```
+
+## Registered elements
+
+Rebar comes with a handful of common page elements built into its registry. Those elements are:
+
+- div 
+- p 
+- span 
+- a 
+- input 
+- form 
+- ol 
+- ul 
+- li
+- h1 - h6        
+
+
+If you'd like to use elements not in this list, simply use the `Rebar.register` function.
+
+```
+  Rebar.register('yourElement');
+
+  Rebar.yourElement('woo!');
+```
+
+The above `yourElement` example would then return the string, `"<yourElement>woo!</yourElement>"`;
 
 ===
 
