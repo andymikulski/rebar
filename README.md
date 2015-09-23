@@ -116,10 +116,10 @@ If you'd like to use elements not in this list, simply use the `Rebar.register` 
 ```
   Rebar.register('yourElement');
 
-  Rebar.yourElement('woo!');
-```
+  var testWoo = Rebar.yourElement('woo!');
 
-The above `yourElement` example would then return the string, `"<yourElement>woo!</yourElement>"`;
+  // testWoo === "<yourElement>woo!</yourElement>"
+```
 
 ===
 
