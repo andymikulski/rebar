@@ -9,10 +9,12 @@ Include `rebar.js` or `rebar.min.js` on the page, or if you've got bower, `bower
 
 Use rebar to construct 'elements' for you to use later:
 
-`var newDiv = Rebar.div('Text in the div!',
+```
+var newDiv = Rebar.div('Text in the div!',
                 Rebar.span('Nested span!),
                 Rebar.span({ className: 'my-class' }, 'Span with a class!')
-              );`
+              );
+```
 
 A compiled string is returned with which you can manipulate as you see fit.
 
